@@ -1,5 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$config['index_page'] = 'index.php';
 $config['is_system_on'] = 'y';
 $config['multiple_sites_enabled'] = 'n';
 $config['show_ee_news'] = 'n';
@@ -23,5 +24,7 @@ $config['database'] = array(
 		'port'     => ''
 	),
 );
+
+// $config['base_url'] = 'https://dev.michaelgjohnson.com/';
 
 // EOF

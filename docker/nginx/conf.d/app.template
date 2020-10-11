@@ -13,7 +13,7 @@ server {
 
 }
 
- server {
+server {
      listen 443 ssl;
      server_name ${NGINX_HOST};
 
@@ -45,4 +45,5 @@ server {
 
      ssl_certificate ${SSL_CERT_PATH};
      ssl_certificate_key ${SSL_KEY_PATH};
- }
+ } 
+
