@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: gemee/php-7.4-fpm
-    container_name: gem_website_app
+    container_name: mj_website_app
     restart: unless-stopped
     tty: true
     environment:
@@ -22,7 +22,7 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: gem_website_webserver
+    container_name: mj_website_webserver
     restart: unless-stopped
     tty: true
     ports:
@@ -31,6 +31,9 @@ services:
     volumes:
       - ./:/var/www
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker/nginx/certs/:/var/www/docker/nginx/certs/
+      - ./docker/certbot/conf:/etc/letsencrypt
+      - ./docker/certbot/www:/var/www/certbot
     networks:
       - app-network
     environment:
@@ -42,7 +45,7 @@ services:
   #MySQL Service
   db:
     image: percona:5.7.28
-    container_name: gem_website_db
+    container_name: mj_website_db
     restart: unless-stopped
     tty: true
     ports:
@@ -55,10 +58,18 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
-      - gem_website_dbdata:/var/lib/mysql
+      - mj_website_dbdata:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
+
+      #Certbot Service
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./docker/certbot/conf:/etc/letsencrypt
+      - ./docker/certbot/www:/var/www/certbot
+
 
 #Docker Networks
 networks:
@@ -67,5 +78,5 @@ networks:
 
 #Volumes
 volumes:
-  gem_website_dbdata:
+  mj_website_dbdata:
     driver: local
