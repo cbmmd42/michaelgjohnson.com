@@ -1,2 +1,4 @@
 .env
 docker/certbot
+
+assets/styles/node_modules/
