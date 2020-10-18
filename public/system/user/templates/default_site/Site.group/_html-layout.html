@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/build/css/main.css">
+    <title>{layout:title}</title>
+</head>
+<body class="flex flex-col h-screen">
+    {embed="site/nav"}
+    <div id="main-body" class="flex-grow clearfix p-0 m-0 w-screen-lg mx-auto bg-blue-100 text-gray-900 shadow-md mb-2">
+            {layout:contents}
+    </div>
+    {embed="site/footer"}
+</body>
+</html>

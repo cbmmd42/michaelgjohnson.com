@@ -1,0 +1,19 @@
+<div id="nav-menu">
+    <div id="topbar" class="bg-gray-800 text-white mb-2">
+        <div class="p-2">
+
+        </div>
+    </div>
+    <div id="main-nav" class="clearfix p-0 m-0 max-w-screen-lg mx-auto mb-2">
+        <ul class="flex justify-end w-full bg-blue-300 p-2 text-white">
+            <li class="p-2 mx-2 bg-blue-500 rounded-md">
+                <a href="/">Home</a>
+            </li>
+            {exp:channel:entries channel="pages"}
+                <li class="p-2 mx-2 bg-blue-500 rounded-md">
+                    <a href="{title_permalink}">{title}</a>
+                </li>
+            {/exp:channel:entries}
+        </ul>
+    </div>
+</div>
