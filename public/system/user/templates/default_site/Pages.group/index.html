@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/build/css/main.css">
-    <title>Michael Johnson</title>
-</head>
-<body>
-    <div class="clearfix p-0 m-0 max-w-screen-lg mx-auto bg-blue-100 text-gray-900">
-        <h1 class="p-6 text-center text-2xl">Michael Johnson</h1>
-        <h2 class="p-6 text-center text-xl">Junior Application Engineer</h2>
-        <p class="p-6">I am currently in the process of building out my personal website. 
-            The tech stack I choose for my michaelgjohnson.com is expression engine. 
-            I think I will create subdomains for other tech stacks (for example laravel.michaelgjohnson.com, 
-            wordpress.michaelgjohnson.com and nextjs.michaelgjohnson.com).
-            I will be using tailwind for my styling and docker to manage my tech stack.
-        </p>
-    </div>
-</body>
-</html>
+{layout="site/_html-layout"}
+
+{exp:channel:entries channel="personal_info"}
+
+<h1 class="p-6 text-center text-2xl">{first_name} {last_name}</h1>
+<h2 class="p-6 text-center text-xl">Junior Application Engineer</h2>
+<p class="p-6">I am currently in the process of building out my personal website. 
+    The tech stack I choose for my michaelgjohnson.com is expression engine. 
+    I think I will create subdomains for other tech stacks (for example laravel.michaelgjohnson.com, 
+    wordpress.michaelgjohnson.com and nextjs.michaelgjohnson.com).
+    I will be using tailwind for my styling and docker to manage my tech stack.
+</p>
+
+{/exp:channel:entries}
